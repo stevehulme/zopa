@@ -1,14 +1,21 @@
 package com.test.zopa;
 
+import com.test.zopa.service.ZopaComparisonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
+
 @SpringBootApplication
 public class ZopaApplication
         implements CommandLineRunner {
+
+    @Autowired
+    private ZopaComparisonService zopaComparisonService;
 
     private static Logger LOG = LoggerFactory
             .getLogger(ZopaApplication.class);
@@ -20,11 +27,13 @@ public class ZopaApplication
     }
 
     @Override
-    public void run(String... args) {
+    public void run(String... args) throws IOException {
         LOG.info("EXECUTING : command line runner");
 
         for (int i = 0; i < args.length; ++i) {
             LOG.info("args[{}]: {}", i, args[i]);
         }
+
+        zopaComparisonService.calculateComparison(args[0], args[1]);
     }
 }

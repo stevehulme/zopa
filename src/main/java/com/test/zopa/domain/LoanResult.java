@@ -6,13 +6,13 @@ public class LoanResult {
 
     private BigDecimal requestedAmount;
     private BigDecimal rate;
-    private BigDecimal monthlyTepayment;
+    private BigDecimal monthlyRepayment;
     private BigDecimal totalRepayment;
 
-    public LoanResult(BigDecimal requestedAmount, BigDecimal rate, BigDecimal monthlyTepayment, BigDecimal totalRepayment) {
+    public LoanResult(BigDecimal requestedAmount, BigDecimal rate, BigDecimal monthlyRepayment, BigDecimal totalRepayment) {
         this.requestedAmount = requestedAmount;
         this.rate = rate;
-        this.monthlyTepayment = monthlyTepayment;
+        this.monthlyRepayment = monthlyRepayment;
         this.totalRepayment = totalRepayment;
     }
 
@@ -24,8 +24,8 @@ public class LoanResult {
         return rate;
     }
 
-    public BigDecimal getMonthlyTepayment() {
-        return monthlyTepayment;
+    public BigDecimal getMonthlyRepayment() {
+        return monthlyRepayment;
     }
 
     public BigDecimal getTotalRepayment() {
